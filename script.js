@@ -9,7 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = inputText.value
         const safeText = encodeURIComponent(text)
         const url = `https://api.mymemory.translated.net/get?q=${safeText}&langpair=uk|en&de=${email}`
-        
+        if(text === '') {
+            inputText.classList.add("error");
+            inputText.placeholder = 'Введіть текст!'
+            setTimeout(() => {
+                inputText.placeholder = 'Введіть текст українською...';
+                inputText.classList.remove("error");
+            }, 3000);
+            return
+        }
         const response = await fetch(url)
         const data = await response.json()
         

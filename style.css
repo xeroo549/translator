@@ -69,3 +69,8 @@ button:hover {
     font-weight: 500;
     border-left: 4px solid #4a90e2;
 }
+
+.error::placeholder {
+    color: #ff0000;
+    opacity: 1; 
+}
